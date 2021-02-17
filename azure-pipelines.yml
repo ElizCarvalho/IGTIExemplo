@@ -30,17 +30,25 @@ steps:
     restoreSolution: '$(solution)'
 
 - task: SonarCloudPrepare@1
+  displayName: SonarCloud Prepare
   inputs:
     SonarCloud: 'SonarCloud'
     organization: 'elizcarvalho-github'
     scannerMode: 'MSBuild'
     projectKey: 'ElizCarvalho_IGTIExemplo'
     projectName: 'IGTIExemplo'
-    extraProperties: |
-     sonar.exclusions=**/obj/**,**/*.dll
-     sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/**/coverage.opencover.xml
-     sonar.cs.vstest.reportsPaths=$(Agent.TempDirectory)/*.trx
 
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'Build: dotnet build $(buildConfiguration)'
+
+- task: SonarCloudAnalyze@1
+  displayName: SonarCloud Analyse
+
+- task: SonarCloudPublish@1
+  displayName: SonarCloud Publish
+  inputs:
+    pollingTimeoutSec: '300'
+  
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -48,11 +56,7 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: SonarCloudAnalyze@1
 
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
 
 - task: VSTest@2
   inputs:
