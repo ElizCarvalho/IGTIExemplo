@@ -45,20 +45,6 @@ steps:
     projectKey: 'ElizCarvalho_IGTIExemplo'
     projectName: 'IGTIExemplo'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Build solution'
-  inputs:
-    command: 'build'
-    projects: '**/*.sln'
-
-- task: SonarCloudAnalyze@1
-  displayName: SonarCloud Analyse
-
-- task: SonarCloudPublish@1
-  displayName: SonarCloud Publish
-  inputs:
-    pollingTimeoutSec: '300'
-
 - task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
