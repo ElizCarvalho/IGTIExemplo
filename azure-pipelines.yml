@@ -36,13 +36,6 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Restore solution'
-  inputs:
-    command: 'restore'
-    projects: '**/*.sln'
-    feedsToUse: 'select'
-
 - task: SonarCloudPrepare@1
   displayName: SonarCloud Prepare
   inputs:
