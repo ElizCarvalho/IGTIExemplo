@@ -27,7 +27,7 @@
                 <section class="container navegacao-topo">
                     <a class="brand">MobEAD</a>
                     <ul class="nav">
-                        <li class="active"><a href="#"><i class="icon-home" data-bind="click:openTestList"></i></a></li>
+                        <li class="active"><a href="#"><em class="icon-home" data-bind="click:openTestList"></em></a></li>
                     </ul>
                 </section>
             </nav>
@@ -111,9 +111,9 @@
         <div class="pull-right navegacao" data-bind="with: CurrentTest">
             <div class="inline" data-bind="visible:!ShowResult()"><span data-bind="text:CurrentQuestion() + 1"></span>/<span data-bind="text:QuestionsAmount + 1"></span></div>
             <!--<a href="#"><i class="icon-home" data-bind="click:openTestList"></i></a>-->
-            <a href="#"><i class="icon-circle-arrow-left" data-bind="click:previousQuestion"></i></a>
-            <div class="inline" data-bind="visible:!ShowResult()"><a href="#"><i class="icon-circle-arrow-right" data-bind="click:nextQuestion"></i></a></div>
-            <a href="#"><i class="icon-check" data-bind="click:endTest"></i></a>
+            <a href="#"><em class="icon-circle-arrow-left" data-bind="click:previousQuestion"></em></a>
+            <div class="inline" data-bind="visible:!ShowResult()"><a href="#"><em class="icon-circle-arrow-right" data-bind="click:nextQuestion"></em></a></div>
+            <a href="#"><em class="icon-check" data-bind="click:endTest"></em></a>
         </div>
     </footer>
 
