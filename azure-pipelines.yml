@@ -36,15 +36,6 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: SonarCloudPrepare@1
-  displayName: SonarCloud Prepare
-  inputs:
-    SonarCloud: 'SonarCloud'
-    organization: 'elizcarvalho-github'
-    scannerMode: 'MSBuild'
-    projectKey: 'ElizCarvalho_IGTIExemplo'
-    projectName: 'IGTIExemplo'
-
 - task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
